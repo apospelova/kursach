@@ -1,0 +1,17 @@
+<nav id="top-nav-bar" class="columns ten">
+  <ul id="nav-bar" class="inline" data-hook>
+    <% if current_user %>
+      <span>Привет, <%= current_user.login %></span>
+    <% else%>
+       <%= link_to main_app.user_omniauth_authorize_path(:vkontakte) do %>
+          <%= image_tag("vkontakte.png", :size => "25x25")%>
+       <% end %>
+          <%= link_to main_app.user_omniauth_authorize_path(:facebook) do %>
+          <%= image_tag("facebook_logo.jpg", :size => "25x25")%>
+       <% end %>
+    <% end %>
+     <li id="search-bar" data-hook>
+      <%= render :partial => 'spree/shared/search' %>
+     </li>
+  </ul>
+</nav>
